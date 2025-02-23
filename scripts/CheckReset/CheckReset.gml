@@ -112,14 +112,14 @@ function CheckReset()
 		switch (interact)
 		{
 			case true:
-					if (keyboard_check_pressed(vk_left))
-					{
-						decisionPosition = 0;
-					}
-					else if (keyboard_check_pressed(vk_right))
-					{
-						decisionPosition = 1;
-					}
+				if (keyboard_check_pressed(vk_left))
+				{
+					decisionPosition = 0;
+				}
+				else if (keyboard_check_pressed(vk_right))
+				{
+					decisionPosition = 1;
+				}
 				break;
 			
 			case false:
