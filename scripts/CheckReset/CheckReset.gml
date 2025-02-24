@@ -68,7 +68,7 @@ function CheckReset()
 				
 			case true:
 			
-				var arrayCheck = 0;
+				var arrayCheck = [];
 			
 				switch (checkBoth)
 				{
@@ -86,16 +86,20 @@ function CheckReset()
 					textIndex = 0;
 					soundIndex = 0;
 					textBoxIndex++;
-					textToRead = checkArray[textBoxIndex];
+					textToRead = arrayCheck[textBoxIndex];
 					facialExpress = facialExpressions[textBoxIndex];
 				}
 				//If so, then quit. 
 				else 
 				{
+					if (executeEventFirstTime)
+					{
+						executeEvent = true;
+						script_execute(ExecuteGlobalEvent);
+					}
 					textIndex = 0;
 					textBoxIndex = 0;
 					soundIndex = 0;
-					global.executeEvent = true;
 					textToRead = textToGive[textBoxIndex];
 					facialExpress = facialExpressions[textBoxIndex];
 					readText = false;
