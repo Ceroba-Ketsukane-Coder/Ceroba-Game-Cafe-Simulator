@@ -18,6 +18,11 @@ function ExecuteGlobalEvent()
 					executeEvent = false;
 					executeEventFirstTime = false;
 					
+					for (var i = 0; i < array_length(interactArray); i++)
+					{
+						interactArray[i] = false;
+					}
+					
 					boolToCheck = [executeEventFirstTime];
 					
 					

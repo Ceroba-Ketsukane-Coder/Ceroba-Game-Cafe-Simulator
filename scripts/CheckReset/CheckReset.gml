@@ -12,59 +12,17 @@ function CheckReset()
 				switch (interact)
 				{
 					case false:
-						//If not at the last box, reset.
-						if (textBoxIndex < array_length(textToGive) - 1)
-						{
-							textIndex = 0;
-							soundIndex = 0;
-							textBoxIndex++;
-							textToRead = textToGive[textBoxIndex];
-							facialExpress = facialExpressions[textBoxIndex];
-						}
-						//If so, then quit. 
-						else 
-						{
-							textIndex = 0;
-							textBoxIndex = 0;
-							soundIndex = 0;
-							textToRead = textToGive[textBoxIndex];
-							facialExpress = facialExpressions[textBoxIndex];
-							readText = false;
-							Obj_Ceroba.state = cerobaPosition.IDLE;
-							alarm[0] = 60;
-						}
+						
+						script_execute(SkipToNext);
+						
 						break;
 					case true:
 						
-						if (textBoxIndex < array_length(textToGive) - 1)
-						{
-							textIndex = 0;
-							soundIndex = 0;
-							textBoxIndex++;
-							textToRead = textToGive[textBoxIndex];
-							facialExpress = facialExpressions[textBoxIndex];
-						}
-						//If so, then quit. 
-						else 
-						{
-							textIndex = 0;
-							textBoxIndex = 0;
-							soundIndex = 0;
-							decisionSelected = false;
-							decisionPosition = 0;
-							textToRead = textToGive[textBoxIndex];
-							facialExpress = facialExpressions[textBoxIndex];
-							readText = false;
-							Obj_Ceroba.state = cerobaPosition.IDLE;
-							alarm[0] = 60;
-						}
-						
+						script_execute(SkipToNextInteract);
 						
 						break;
 				}
 				break;
-				
-				
 				
 			case true:
 			
@@ -80,32 +38,7 @@ function CheckReset()
 						break;
 				}
 				
-				//If not at the last box, reset.
-				if (textBoxIndex < array_length(arrayCheck) - 1)
-				{
-					textIndex = 0;
-					soundIndex = 0;
-					textBoxIndex++;
-					textToRead = arrayCheck[textBoxIndex];
-					facialExpress = facialExpressions[textBoxIndex];
-				}
-				//If so, then quit. 
-				else 
-				{
-					if (executeEventFirstTime)
-					{
-						executeEvent = true;
-						script_execute(ExecuteGlobalEvent);
-					}
-					textIndex = 0;
-					textBoxIndex = 0;
-					soundIndex = 0;
-					textToRead = textToGive[textBoxIndex];
-					facialExpress = facialExpressions[textBoxIndex];
-					readText = false;
-					Obj_Ceroba.state = cerobaPosition.IDLE;
-					alarm[0] = 60;
-				}
+				script_execute(SkipToNextInteractCheck, arrayCheck);
 				
 				break;
 		}
